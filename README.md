@@ -1,2 +1,2 @@
 # TesteAspNetCore
-Aplicação para testar o Entity Framework Core
+Aplicação para testar o ASP.Net Core
