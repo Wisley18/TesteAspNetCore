@@ -8,3 +8,13 @@ C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreDF\bin\Debug\
 C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreDF\bin\Debug\netcoreapp2.1\TesteCoreDF.pdb
 C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.dll
 C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.pdb
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\bin\Debug\netcoreapp2.1\TesteCoreDF.deps.json
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\bin\Debug\netcoreapp2.1\TesteCoreDF.runtimeconfig.json
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\bin\Debug\netcoreapp2.1\TesteCoreDF.runtimeconfig.dev.json
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\bin\Debug\netcoreapp2.1\TesteCoreDF.dll
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\bin\Debug\netcoreapp2.1\TesteCoreDF.pdb
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.csproj.CoreCompileInputs.cache
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.AssemblyInfoInputs.cache
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.AssemblyInfo.cs
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.dll
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.pdb

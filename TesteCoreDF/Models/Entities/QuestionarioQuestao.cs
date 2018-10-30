@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TesteCoreDF.Models
+namespace TesteCoreDF.Models.Entities
 {
-    public partial class Questionarioquestao
+    public partial class QuestionarioQuestao
     {
-        public Questionarioquestao()
+        public QuestionarioQuestao()
         {
-            Questionarioquestaoalternativa = new HashSet<Questionarioquestaoalternativa>();
+            QuestionarioQuestaoAlternativa = new HashSet<QuestionarioQuestaoAlternativa>();
         }
 
         public long Id { get; set; }
@@ -16,6 +16,6 @@ namespace TesteCoreDF.Models
 
         public Questao IdQuestaoNavigation { get; set; }
         public Questionario IdQuestionarioNavigation { get; set; }
-        public ICollection<Questionarioquestaoalternativa> Questionarioquestaoalternativa { get; set; }
+        public ICollection<QuestionarioQuestaoAlternativa> QuestionarioQuestaoAlternativa { get; set; }
     }
 }

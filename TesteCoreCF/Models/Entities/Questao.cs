@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TesteCoreDF.Models
+namespace TesteCoreCF.Models.Entities
 {
     public partial class Questao
     {
         public Questao()
         {
-            Questaotema = new HashSet<Questaotema>();
-            Questionarioquestao = new HashSet<Questionarioquestao>();
+            QuestaoTema = new HashSet<QuestaoTema>();
+            QuestionarioQuestao = new HashSet<QuestionarioQuestao>();
         }
 
         public long Id { get; set; }
@@ -17,8 +17,8 @@ namespace TesteCoreDF.Models
         public string StatusRegistro { get; set; }
         public DateTimeOffset? DataHoraCriacao { get; set; }
 
-        public Multiplaescolha Multiplaescolha { get; set; }
-        public ICollection<Questaotema> Questaotema { get; set; }
-        public ICollection<Questionarioquestao> Questionarioquestao { get; set; }
+        public MultiplaEscolha MultiplaEscolha { get; set; }
+        public ICollection<QuestaoTema> QuestaoTema { get; set; }
+        public ICollection<QuestionarioQuestao> QuestionarioQuestao { get; set; }
     }
 }

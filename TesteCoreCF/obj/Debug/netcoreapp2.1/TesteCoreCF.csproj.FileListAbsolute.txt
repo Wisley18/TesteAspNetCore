@@ -6,3 +6,11 @@ C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreCF\obj\Debug\
 C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.AssemblyInfo.cs
 C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.dll
 C:\Users\wisle\Desktop\Teste Asp Net Core\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.pdb
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\bin\Debug\netcoreapp2.1\TesteCoreCF.deps.json
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\bin\Debug\netcoreapp2.1\TesteCoreCF.dll
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\bin\Debug\netcoreapp2.1\TesteCoreCF.pdb
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.csproj.CoreCompileInputs.cache
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.AssemblyInfoInputs.cache
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.AssemblyInfo.cs
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.dll
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.pdb

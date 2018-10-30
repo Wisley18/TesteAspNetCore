@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TesteCoreDF.Models
+namespace TesteCoreDF.Models.Entities
 {
-    public partial class Multiplaescolha
+    public partial class MultiplaEscolha
     {
-        public Multiplaescolha()
+        public MultiplaEscolha()
         {
             Alternativa = new HashSet<Alternativa>();
         }

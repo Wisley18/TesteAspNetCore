@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TesteCoreDF.Models
+namespace TesteCoreDF.Models.Entities
 {
     public partial class Tema
     {
         public Tema()
         {
-            Questaotema = new HashSet<Questaotema>();
+            QuestaoTema = new HashSet<QuestaoTema>();
             Questionario = new HashSet<Questionario>();
         }
 
@@ -17,7 +17,7 @@ namespace TesteCoreDF.Models
         public string StatusRegistro { get; set; }
         public DateTimeOffset? DataHoraCriacao { get; set; }
 
-        public ICollection<Questaotema> Questaotema { get; set; }
+        public ICollection<QuestaoTema> QuestaoTema { get; set; }
         public ICollection<Questionario> Questionario { get; set; }
     }
 }

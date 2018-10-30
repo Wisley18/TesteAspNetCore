@@ -1,3 +1,5 @@
 - https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core-charset.html
 
 - https://www.devart.com/dotconnect/mysql/docs/Tutorial_EFCore.html
+
+- https://medium.com/@alexalves_85598/configurando-migrations-no-ef-core-com-mysql-e8f33619c268

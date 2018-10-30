@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace TesteCoreDF.Models
+namespace TesteCoreDF.Models.Entities
 {
     public partial class AcademicoContext : DbContext
     {
@@ -16,12 +16,12 @@ namespace TesteCoreDF.Models
         }
 
         public virtual DbSet<Alternativa> Alternativa { get; set; }
-        public virtual DbSet<Multiplaescolha> Multiplaescolha { get; set; }
+        public virtual DbSet<MultiplaEscolha> MultiplaEscolha { get; set; }
         public virtual DbSet<Questao> Questao { get; set; }
-        public virtual DbSet<Questaotema> Questaotema { get; set; }
+        public virtual DbSet<QuestaoTema> QuestaoTema { get; set; }
         public virtual DbSet<Questionario> Questionario { get; set; }
-        public virtual DbSet<Questionarioquestao> Questionarioquestao { get; set; }
-        public virtual DbSet<Questionarioquestaoalternativa> Questionarioquestaoalternativa { get; set; }
+        public virtual DbSet<QuestionarioQuestao> QuestionarioQuestao { get; set; }
+        public virtual DbSet<QuestionarioQuestaoAlternativa> QuestionarioQuestaoAlternativa { get; set; }
         public virtual DbSet<Tema> Tema { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,7 +29,7 @@ namespace TesteCoreDF.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySQL("MySqlConnectionString");
+                optionsBuilder.UseMySQL("server=192.168.1.56;port=3306;user=root;password=123456789;database=Academico");
             }
         }
 
@@ -37,7 +37,7 @@ namespace TesteCoreDF.Models
         {
             modelBuilder.Entity<Alternativa>(entity =>
             {
-                entity.ToTable("alternativa", "academico");
+                entity.ToTable("Alternativa", "Academico");
 
                 entity.HasIndex(e => e.IdQuestao)
                     .HasName("fk_Alternativa_MultiplaEscolha1_idx");
@@ -61,9 +61,9 @@ namespace TesteCoreDF.Models
                     .HasConstraintName("fk_Alternativa_MultiplaEscolha1");
             });
 
-            modelBuilder.Entity<Multiplaescolha>(entity =>
+            modelBuilder.Entity<MultiplaEscolha>(entity =>
             {
-                entity.ToTable("multiplaescolha", "academico");
+                entity.ToTable("MultiplaEscolha", "Academico");
 
                 entity.HasIndex(e => e.Id)
                     .HasName("fk_MultiplaEscolha_Questao1_idx");
@@ -73,15 +73,15 @@ namespace TesteCoreDF.Models
                     .ValueGeneratedNever();
 
                 entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.Multiplaescolha)
-                    .HasForeignKey<Multiplaescolha>(d => d.Id)
+                    .WithOne(p => p.MultiplaEscolha)
+                    .HasForeignKey<MultiplaEscolha>(d => d.Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_MultiplaEscolha_Questao1");
             });
 
             modelBuilder.Entity<Questao>(entity =>
             {
-                entity.ToTable("questao", "academico");
+                entity.ToTable("Questao", "Academico");
 
                 entity.Property(e => e.Id).HasColumnType("bigint(20)");
 
@@ -96,9 +96,9 @@ namespace TesteCoreDF.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Questaotema>(entity =>
+            modelBuilder.Entity<QuestaoTema>(entity =>
             {
-                entity.ToTable("questaotema", "academico");
+                entity.ToTable("QuestaoTema", "Academico");
 
                 entity.HasIndex(e => e.IdQuestao)
                     .HasName("fk_QuestaoTema_Questao1_idx");
@@ -121,13 +121,13 @@ namespace TesteCoreDF.Models
                 entity.Property(e => e.StatusRegistro).HasColumnType("enum('1','2','3')");
 
                 entity.HasOne(d => d.IdQuestaoNavigation)
-                    .WithMany(p => p.Questaotema)
+                    .WithMany(p => p.QuestaoTema)
                     .HasForeignKey(d => d.IdQuestao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_QuestaoTema_Questao1");
 
                 entity.HasOne(d => d.IdTemaNavigation)
-                    .WithMany(p => p.Questaotema)
+                    .WithMany(p => p.QuestaoTema)
                     .HasForeignKey(d => d.IdTema)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_QuestaoTema_Tema");
@@ -135,7 +135,7 @@ namespace TesteCoreDF.Models
 
             modelBuilder.Entity<Questionario>(entity =>
             {
-                entity.ToTable("questionario", "academico");
+                entity.ToTable("Questionario", "Academico");
 
                 entity.HasIndex(e => e.IdTema)
                     .HasName("fk_Questionario_Tema1_idx");
@@ -161,9 +161,9 @@ namespace TesteCoreDF.Models
                     .HasConstraintName("fk_Questionario_Tema1");
             });
 
-            modelBuilder.Entity<Questionarioquestao>(entity =>
+            modelBuilder.Entity<QuestionarioQuestao>(entity =>
             {
-                entity.ToTable("questionarioquestao", "academico");
+                entity.ToTable("QuestionarioQuestao", "Academico");
 
                 entity.HasIndex(e => e.IdQuestao)
                     .HasName("fk_QuestionarioQuestao_Questao1_idx");
@@ -178,21 +178,21 @@ namespace TesteCoreDF.Models
                 entity.Property(e => e.IdQuestionario).HasColumnType("bigint(20)");
 
                 entity.HasOne(d => d.IdQuestaoNavigation)
-                    .WithMany(p => p.Questionarioquestao)
+                    .WithMany(p => p.QuestionarioQuestao)
                     .HasForeignKey(d => d.IdQuestao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_QuestionarioQuestao_Questao1");
 
                 entity.HasOne(d => d.IdQuestionarioNavigation)
-                    .WithMany(p => p.Questionarioquestao)
+                    .WithMany(p => p.QuestionarioQuestao)
                     .HasForeignKey(d => d.IdQuestionario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_QuestionarioQuestao_Questionario1");
             });
 
-            modelBuilder.Entity<Questionarioquestaoalternativa>(entity =>
+            modelBuilder.Entity<QuestionarioQuestaoAlternativa>(entity =>
             {
-                entity.ToTable("questionarioquestaoalternativa", "academico");
+                entity.ToTable("QuestionarioQuestaoAlternativa", "Academico");
 
                 entity.HasIndex(e => e.IdAlternativa)
                     .HasName("fk_QuestionarioQuestaoAlternativa_Alternativa1_idx");
@@ -207,13 +207,13 @@ namespace TesteCoreDF.Models
                 entity.Property(e => e.IdQuestionarioQuestao).HasColumnType("bigint(20)");
 
                 entity.HasOne(d => d.IdAlternativaNavigation)
-                    .WithMany(p => p.Questionarioquestaoalternativa)
+                    .WithMany(p => p.QuestionarioQuestaoAlternativa)
                     .HasForeignKey(d => d.IdAlternativa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_QuestionarioQuestaoAlternativa_Alternativa1");
 
                 entity.HasOne(d => d.IdQuestionarioQuestaoNavigation)
-                    .WithMany(p => p.Questionarioquestaoalternativa)
+                    .WithMany(p => p.QuestionarioQuestaoAlternativa)
                     .HasForeignKey(d => d.IdQuestionarioQuestao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_QuestionarioQuestaoAlternativa_QuestionarioQuestao1");
@@ -221,7 +221,7 @@ namespace TesteCoreDF.Models
 
             modelBuilder.Entity<Tema>(entity =>
             {
-                entity.ToTable("tema", "academico");
+                entity.ToTable("Tema", "Academico");
 
                 entity.Property(e => e.Id).HasColumnType("bigint(20)");
 

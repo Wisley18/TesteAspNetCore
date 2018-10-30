@@ -3333,23 +3333,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wisle\\.nuget\\packages\\": {},
+    "C:\\Users\\Fausto\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wisle\\Desktop\\Teste Asp Net Core\\TesteAspNetCore\\TesteCoreCF\\TesteCoreCF.csproj",
+      "projectUniqueName": "C:\\Projetos\\ASPNetCore\\TesteAspNetCore\\TesteAspNetCore\\TesteCoreCF\\TesteCoreCF.csproj",
       "projectName": "TesteCoreCF",
-      "projectPath": "C:\\Users\\wisle\\Desktop\\Teste Asp Net Core\\TesteAspNetCore\\TesteCoreCF\\TesteCoreCF.csproj",
-      "packagesPath": "C:\\Users\\wisle\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wisle\\Desktop\\Teste Asp Net Core\\TesteAspNetCore\\TesteCoreCF\\obj\\",
+      "projectPath": "C:\\Projetos\\ASPNetCore\\TesteAspNetCore\\TesteAspNetCore\\TesteCoreCF\\TesteCoreCF.csproj",
+      "packagesPath": "C:\\Users\\Fausto\\.nuget\\packages\\",
+      "outputPath": "C:\\Projetos\\ASPNetCore\\TesteAspNetCore\\TesteAspNetCore\\TesteCoreCF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\wisle\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fausto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3357,7 +3357,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp2.1": {

@@ -11,7 +11,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TesteCoreCF.Models;
+using TesteCoreCF.Models.Entities;
 using TesteCoreDF.Models;
+using TesteCoreDF.Repositories.Source;
 
 namespace TesteAspNetCore
 {
@@ -27,10 +29,7 @@ namespace TesteAspNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<AcademicoContext>(options =>
-                options.UseMySQL(connection)
-            );
+
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -39,8 +38,18 @@ namespace TesteAspNetCore
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<AcademicoContext>(options =>
+                options.UseMySQL(
+                    sqlConnectionString
+                )
+            );
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

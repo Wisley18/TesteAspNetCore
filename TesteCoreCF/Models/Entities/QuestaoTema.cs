@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TesteCoreDF.Models
+namespace TesteCoreCF.Models.Entities
 {
-    public partial class Questaotema
+    public partial class QuestaoTema
     {
         public long Id { get; set; }
         public long IdTema { get; set; }
@@ -13,7 +13,7 @@ namespace TesteCoreDF.Models
         public string StatusRegistro { get; set; }
         public DateTimeOffset? DataHoraCriacao { get; set; }
 
-        public Questao IdQuestaoNavigation { get; set; }
-        public Tema IdTemaNavigation { get; set; }
+        public Questao Questao { get; set; }
+        public Tema Tema { get; set; }
     }
 }
