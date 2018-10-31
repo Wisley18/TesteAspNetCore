@@ -40,10 +40,8 @@ namespace TesteAspNetCore
 
             var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<AcademicoContext>(options =>
-                options.UseMySQL(
-                    sqlConnectionString
-                )
+            services.AddDbContext<AcademicoContextCF>(options =>
+                options.UseMySQL(sqlConnectionString)
             );
 
 

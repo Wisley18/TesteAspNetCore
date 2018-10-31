@@ -6,13 +6,13 @@ using TesteCoreCF.Models.Maps;
 
 namespace TesteCoreCF.Models.Entities
 {
-    public partial class AcademicoContext : DbContext
+    public partial class AcademicoContextCF : DbContext
     {
-        public AcademicoContext()
+        public AcademicoContextCF()
         {
         }
 
-        public AcademicoContext(DbContextOptions<AcademicoContext> options)
+        public AcademicoContextCF(DbContextOptions<AcademicoContextCF> options)
             : base(options)
         {
         }
@@ -45,108 +45,13 @@ namespace TesteCoreCF.Models.Entities
 
             modelBuilder.Entity<QuestaoTema>(new QuestaoTemaMap().Configure);
 
-            modelBuilder.Entity<Questionario>(entity =>
-            {
-                entity.ToTable("Questionario", "Academico");
+            modelBuilder.Entity<Questionario>(new QuestionarioMap().Configure);
 
-                entity.HasIndex(e => e.IdTema)
-                    .HasName("fk_Questionario_Tema1_idx");
+            modelBuilder.Entity<QuestionarioQuestao>(new QuestionarioQuestaoMap().Configure);
 
-                entity.Property(e => e.Id).HasColumnType("bigint(20)");
+            modelBuilder.Entity<QuestionarioQuestaoAlternativa>(new QuestionarioQuestaoAlternativaMap().Configure);
 
-                entity.Property(e => e.Descricao).IsUnicode(false);
-
-                entity.Property(e => e.IdTema).HasColumnType("bigint(20)");
-
-                entity.Property(e => e.StatusRegistro)
-                    .IsRequired()
-                    .HasColumnType("enum('1','2','3')");
-
-                entity.Property(e => e.Título)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.Tema)
-                    .WithMany(p => p.Questionario)
-                    .HasForeignKey(d => d.IdTema)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_Questionario_Tema1");
-            });
-
-            modelBuilder.Entity<QuestionarioQuestao>(entity =>
-            {
-                entity.ToTable("QuestionarioQuestao", "Academico");
-
-                entity.HasIndex(e => e.IdQuestao)
-                    .HasName("fk_QuestionarioQuestao_Questao1_idx");
-
-                entity.HasIndex(e => e.IdQuestionario)
-                    .HasName("fk_QuestionarioQuestao_Questionario1_idx");
-
-                entity.Property(e => e.Id).HasColumnType("bigint(20)");
-
-                entity.Property(e => e.IdQuestao).HasColumnType("bigint(20)");
-
-                entity.Property(e => e.IdQuestionario).HasColumnType("bigint(20)");
-
-                entity.HasOne(d => d.Questao)
-                    .WithMany(p => p.QuestionarioQuestao)
-                    .HasForeignKey(d => d.IdQuestao)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_QuestionarioQuestao_Questao1");
-
-                entity.HasOne(d => d.Questionario)
-                    .WithMany(p => p.QuestionarioQuestao)
-                    .HasForeignKey(d => d.IdQuestionario)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_QuestionarioQuestao_Questionario1");
-            });
-
-            modelBuilder.Entity<QuestionarioQuestaoAlternativa>(entity =>
-            {
-                entity.ToTable("QuestionarioQuestaoAlternativa", "Academico");
-
-                entity.HasIndex(e => e.IdAlternativa)
-                    .HasName("fk_QuestionarioQuestaoAlternativa_Alternativa1_idx");
-
-                entity.HasIndex(e => e.IdQuestionarioQuestao)
-                    .HasName("fk_QuestionarioQuestaoAlternativa_QuestionarioQuestao1_idx");
-
-                entity.Property(e => e.Id).HasColumnType("bigint(20)");
-
-                entity.Property(e => e.IdAlternativa).HasColumnType("bigint(20)");
-
-                entity.Property(e => e.IdQuestionarioQuestao).HasColumnType("bigint(20)");
-
-                entity.HasOne(d => d.Alternativa)
-                    .WithMany(p => p.QuestionarioQuestaoAlternativa)
-                    .HasForeignKey(d => d.IdAlternativa)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_QuestionarioQuestaoAlternativa_Alternativa1");
-
-                entity.HasOne(d => d.QuestionarioQuestao)
-                    .WithMany(p => p.QuestionarioQuestaoAlternativa)
-                    .HasForeignKey(d => d.IdQuestionarioQuestao)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_QuestionarioQuestaoAlternativa_QuestionarioQuestao1");
-            });
-
-            modelBuilder.Entity<Tema>(entity =>
-            {
-                entity.ToTable("Tema", "Academico");
-
-                entity.Property(e => e.Id).HasColumnType("bigint(20)");
-
-                entity.Property(e => e.DataHoraCriacao).HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                entity.Property(e => e.Descricao).IsUnicode(false);
-
-                entity.Property(e => e.Nome)
-                    .HasMaxLength(70)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.StatusRegistro).HasColumnType("enum('1','2','3')");
-            });
+            modelBuilder.Entity<Tema>(new TemaMap().Configure);
         }
     }
 }

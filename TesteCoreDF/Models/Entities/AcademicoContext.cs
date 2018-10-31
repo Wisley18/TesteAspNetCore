@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace TesteCoreDF.Models.Entities
 {
-    public partial class AcademicoContext : DbContext
+    public partial class AcademicoContextDF : DbContext
     {
-        public AcademicoContext()
+        public AcademicoContextDF()
         {
         }
 
-        public AcademicoContext(DbContextOptions<AcademicoContext> options)
+        public AcademicoContextDF(DbContextOptions<AcademicoContextDF> options)
             : base(options)
         {
         }
