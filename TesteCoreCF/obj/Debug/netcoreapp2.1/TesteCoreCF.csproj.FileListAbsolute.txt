@@ -14,3 +14,4 @@ C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\net
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.AssemblyInfo.cs
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.dll
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.pdb
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreCF\obj\Debug\netcoreapp2.1\TesteCoreCF.csprojAssemblyReference.cache

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TesteCoreCF.Models;
 using TesteCoreCF.Models.Entities;
+using TesteCoreCF.Repositories.Source;
 using TesteCoreDF.Models;
 using TesteCoreDF.Repositories.Source;
 
@@ -44,6 +45,7 @@ namespace TesteAspNetCore
                 options.UseMySQL(sqlConnectionString)
             );
 
+            services.AddScoped<IAbstractCoreRepository, CoreRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

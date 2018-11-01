@@ -18,3 +18,4 @@ C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\net
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.AssemblyInfo.cs
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.dll
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.pdb
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteCoreDF\obj\Debug\netcoreapp2.1\TesteCoreDF.csprojAssemblyReference.cache
