@@ -8,7 +8,6 @@ namespace TesteCoreCF.Models.Entities
         public Tema()
         {
             QuestaoTema = new HashSet<QuestaoTema>();
-            Questionario = new HashSet<Questionario>();
         }
 
         public long Id { get; set; }
@@ -18,6 +17,5 @@ namespace TesteCoreCF.Models.Entities
         public DateTimeOffset? DataHoraCriacao { get; set; }
 
         public ICollection<QuestaoTema> QuestaoTema { get; set; }
-        public ICollection<Questionario> Questionario { get; set; }
     }
 }

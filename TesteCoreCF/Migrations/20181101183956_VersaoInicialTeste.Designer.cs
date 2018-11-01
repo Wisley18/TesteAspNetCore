@@ -9,8 +9,8 @@ using TesteCoreCF.Models.Entities;
 namespace TesteCoreCF.Migrations
 {
     [DbContext(typeof(AcademicoContextCF))]
-    [Migration("20181031141219_VersaoInicial")]
-    partial class VersaoInicial
+    [Migration("20181101183956_VersaoInicialTeste")]
+    partial class VersaoInicialTeste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,80 +123,6 @@ namespace TesteCoreCF.Migrations
                     b.ToTable("QuestaoTema","Academico");
                 });
 
-            modelBuilder.Entity("TesteCoreCF.Models.Entities.Questionario", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint(20)");
-
-                    b.Property<string>("Descricao")
-                        .IsUnicode(false);
-
-                    b.Property<long>("IdTema")
-                        .HasColumnType("bigint(20)");
-
-                    b.Property<string>("StatusRegistro")
-                        .IsRequired()
-                        .HasColumnType("enum('1','2','3')");
-
-                    b.Property<string>("Título")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdTema")
-                        .HasName("fk_Questionario_Tema1_idx");
-
-                    b.ToTable("Questionario","Academico");
-                });
-
-            modelBuilder.Entity("TesteCoreCF.Models.Entities.QuestionarioQuestao", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint(20)");
-
-                    b.Property<long>("IdQuestao")
-                        .HasColumnType("bigint(20)");
-
-                    b.Property<long>("IdQuestionario")
-                        .HasColumnType("bigint(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdQuestao")
-                        .HasName("fk_QuestionarioQuestao_Questao1_idx");
-
-                    b.HasIndex("IdQuestionario")
-                        .HasName("fk_QuestionarioQuestao_Questionario1_idx");
-
-                    b.ToTable("QuestionarioQuestao","Academico");
-                });
-
-            modelBuilder.Entity("TesteCoreCF.Models.Entities.QuestionarioQuestaoAlternativa", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint(20)");
-
-                    b.Property<long>("IdAlternativa")
-                        .HasColumnType("bigint(20)");
-
-                    b.Property<long>("IdQuestionarioQuestao")
-                        .HasColumnType("bigint(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdAlternativa")
-                        .HasName("fk_QuestionarioQuestaoAlternativa_Alternativa1_idx");
-
-                    b.HasIndex("IdQuestionarioQuestao")
-                        .HasName("fk_QuestionarioQuestaoAlternativa_QuestionarioQuestao1_idx");
-
-                    b.ToTable("QuestionarioQuestaoAlternativa","Academico");
-                });
-
             modelBuilder.Entity("TesteCoreCF.Models.Entities.Tema", b =>
                 {
                     b.Property<long>("Id")
@@ -251,40 +177,6 @@ namespace TesteCoreCF.Migrations
                         .HasForeignKey("IdTema")
                         .HasConstraintName("fk_QuestaoTema_Tema")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TesteCoreCF.Models.Entities.Questionario", b =>
-                {
-                    b.HasOne("TesteCoreCF.Models.Entities.Tema", "Tema")
-                        .WithMany("Questionario")
-                        .HasForeignKey("IdTema")
-                        .HasConstraintName("fk_Questionario_Tema1");
-                });
-
-            modelBuilder.Entity("TesteCoreCF.Models.Entities.QuestionarioQuestao", b =>
-                {
-                    b.HasOne("TesteCoreCF.Models.Entities.Questao", "Questao")
-                        .WithMany("QuestionarioQuestao")
-                        .HasForeignKey("IdQuestao")
-                        .HasConstraintName("fk_QuestionarioQuestao_Questao1");
-
-                    b.HasOne("TesteCoreCF.Models.Entities.Questionario", "Questionario")
-                        .WithMany("QuestionarioQuestao")
-                        .HasForeignKey("IdQuestionario")
-                        .HasConstraintName("fk_QuestionarioQuestao_Questionario1");
-                });
-
-            modelBuilder.Entity("TesteCoreCF.Models.Entities.QuestionarioQuestaoAlternativa", b =>
-                {
-                    b.HasOne("TesteCoreCF.Models.Entities.Alternativa", "Alternativa")
-                        .WithMany("QuestionarioQuestaoAlternativa")
-                        .HasForeignKey("IdAlternativa")
-                        .HasConstraintName("fk_QuestionarioQuestaoAlternativa_Alternativa1");
-
-                    b.HasOne("TesteCoreCF.Models.Entities.QuestionarioQuestao", "QuestionarioQuestao")
-                        .WithMany("QuestionarioQuestaoAlternativa")
-                        .HasForeignKey("IdQuestionarioQuestao")
-                        .HasConstraintName("fk_QuestionarioQuestaoAlternativa_QuestionarioQuestao1");
                 });
 #pragma warning restore 612, 618
         }

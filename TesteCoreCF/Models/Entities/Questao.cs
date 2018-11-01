@@ -8,7 +8,6 @@ namespace TesteCoreCF.Models.Entities
         public Questao()
         {
             QuestaoTema = new HashSet<QuestaoTema>();
-            QuestionarioQuestao = new HashSet<QuestionarioQuestao>();
         }
 
         public long Id { get; set; }
@@ -19,6 +18,5 @@ namespace TesteCoreCF.Models.Entities
 
         public MultiplaEscolha MultiplaEscolha { get; set; }
         public ICollection<QuestaoTema> QuestaoTema { get; set; }
-        public ICollection<QuestionarioQuestao> QuestionarioQuestao { get; set; }
     }
 }

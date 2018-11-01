@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TesteCoreCF.Migrations
 {
-    public partial class VersaoInicial : Migration
+    public partial class VersaoInicialTeste : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -97,30 +97,6 @@ namespace TesteCoreCF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Questionario",
-                schema: "Academico",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint(20)", nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
-                    IdTema = table.Column<long>(type: "bigint(20)", nullable: false),
-                    Título = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
-                    Descricao = table.Column<string>(unicode: false, nullable: true),
-                    StatusRegistro = table.Column<string>(type: "enum('1','2','3')", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Questionario", x => x.Id);
-                    table.ForeignKey(
-                        name: "fk_Questionario_Tema1",
-                        column: x => x.IdTema,
-                        principalSchema: "Academico",
-                        principalTable: "Tema",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Alternativa",
                 schema: "Academico",
                 columns: table => new
@@ -141,64 +117,6 @@ namespace TesteCoreCF.Migrations
                         column: x => x.IdQuestao,
                         principalSchema: "Academico",
                         principalTable: "MultiplaEscolha",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "QuestionarioQuestao",
-                schema: "Academico",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint(20)", nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
-                    IdQuestionario = table.Column<long>(type: "bigint(20)", nullable: false),
-                    IdQuestao = table.Column<long>(type: "bigint(20)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_QuestionarioQuestao", x => x.Id);
-                    table.ForeignKey(
-                        name: "fk_QuestionarioQuestao_Questao1",
-                        column: x => x.IdQuestao,
-                        principalSchema: "Academico",
-                        principalTable: "Questao",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "fk_QuestionarioQuestao_Questionario1",
-                        column: x => x.IdQuestionario,
-                        principalSchema: "Academico",
-                        principalTable: "Questionario",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "QuestionarioQuestaoAlternativa",
-                schema: "Academico",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint(20)", nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
-                    IdQuestionarioQuestao = table.Column<long>(type: "bigint(20)", nullable: false),
-                    IdAlternativa = table.Column<long>(type: "bigint(20)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_QuestionarioQuestaoAlternativa", x => x.Id);
-                    table.ForeignKey(
-                        name: "fk_QuestionarioQuestaoAlternativa_Alternativa1",
-                        column: x => x.IdAlternativa,
-                        principalSchema: "Academico",
-                        principalTable: "Alternativa",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "fk_QuestionarioQuestaoAlternativa_QuestionarioQuestao1",
-                        column: x => x.IdQuestionarioQuestao,
-                        principalSchema: "Academico",
-                        principalTable: "QuestionarioQuestao",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -227,54 +145,16 @@ namespace TesteCoreCF.Migrations
                 schema: "Academico",
                 table: "QuestaoTema",
                 column: "IdTema");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_Questionario_Tema1_idx",
-                schema: "Academico",
-                table: "Questionario",
-                column: "IdTema");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_QuestionarioQuestao_Questao1_idx",
-                schema: "Academico",
-                table: "QuestionarioQuestao",
-                column: "IdQuestao");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_QuestionarioQuestao_Questionario1_idx",
-                schema: "Academico",
-                table: "QuestionarioQuestao",
-                column: "IdQuestionario");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_QuestionarioQuestaoAlternativa_Alternativa1_idx",
-                schema: "Academico",
-                table: "QuestionarioQuestaoAlternativa",
-                column: "IdAlternativa");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_QuestionarioQuestaoAlternativa_QuestionarioQuestao1_idx",
-                schema: "Academico",
-                table: "QuestionarioQuestaoAlternativa",
-                column: "IdQuestionarioQuestao");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "QuestaoTema",
-                schema: "Academico");
-
-            migrationBuilder.DropTable(
-                name: "QuestionarioQuestaoAlternativa",
-                schema: "Academico");
-
-            migrationBuilder.DropTable(
                 name: "Alternativa",
                 schema: "Academico");
 
             migrationBuilder.DropTable(
-                name: "QuestionarioQuestao",
+                name: "QuestaoTema",
                 schema: "Academico");
 
             migrationBuilder.DropTable(
@@ -282,15 +162,11 @@ namespace TesteCoreCF.Migrations
                 schema: "Academico");
 
             migrationBuilder.DropTable(
-                name: "Questionario",
+                name: "Tema",
                 schema: "Academico");
 
             migrationBuilder.DropTable(
                 name: "Questao",
-                schema: "Academico");
-
-            migrationBuilder.DropTable(
-                name: "Tema",
                 schema: "Academico");
         }
     }
