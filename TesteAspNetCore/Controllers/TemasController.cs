@@ -25,15 +25,18 @@ namespace TesteAspNetCore.Controllers
             academico = a;
         }
 
+        /// <summary>
+        /// Obtem todos os temas
+        /// </summary>
+        /// <returns>Lista de objetos TemaDto</returns>
         [HttpGet]
-        [Route("{id:long:min(1)}", Name = "ObterTema")]
+        [Route("", Name = "ObterTema")]
         public async Task<IActionResult> Obter()
         {
             try
             {
-                var service = new Questao();
-                var questoes = await service.ObterTodas(0, 2);
-                var res = questoes.Item1.Select(q => new QuestaoDto(q));
+                var temas = await academico.ObterTema();
+                var res = temas.Select(t => new TemaDto(t));
                 return Ok(res);
             }
             catch (Exception ex)

@@ -70,3 +70,4 @@ C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteAspNetCore\obj\Debug
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteAspNetCore\obj\Debug\netcoreapp2.1\TesteAspNetCore.csproj.CopyComplete
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteAspNetCore\obj\Debug\netcoreapp2.1\TesteAspNetCore.dll
 C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteAspNetCore\obj\Debug\netcoreapp2.1\TesteAspNetCore.pdb
+C:\Projetos\ASPNetCore\TesteAspNetCore\TesteAspNetCore\TesteAspNetCore\bin\Debug\netcoreapp2.1\TesteAspNetCore.xml

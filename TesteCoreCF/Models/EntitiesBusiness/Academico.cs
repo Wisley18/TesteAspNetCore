@@ -35,5 +35,10 @@ namespace TesteCoreCF.Models
 
             return _tema;
         }
+
+        public async Task<IEnumerable<Tema>> ObterTema()
+        {
+            return await CoreRepositories.ITemaRepository.ObterAsync();
+        }
     }
 }
